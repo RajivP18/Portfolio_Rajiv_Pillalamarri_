@@ -1,0 +1,7 @@
+# This portfolio is a React + TypeScript + Vite project.
+# Python dependencies are not required to run the portfolio.
+# Use package.json with npm instead.
+
+# Local setup:
+#   npm install
+#   npm run dev
