@@ -9,6 +9,7 @@ import {
   Certifications,
   WhyHire,
 } from "@/components/portfolio/Sections";
+import { AISkills } from "@/components/portfolio/AISkills";
 import { Interests } from "@/components/portfolio/Interests";
 import { Journey } from "@/components/portfolio/Journey";
 import { ContactInbox } from "@/components/portfolio/ContactInbox";
@@ -49,6 +50,7 @@ function Index() {
         <About />
         <Experience />
         <Skills />
+        <AISkills />
         <Projects />
         <Certifications />
         <Interests />
