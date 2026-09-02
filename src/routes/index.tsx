@@ -9,7 +9,9 @@ import {
   Certifications,
   WhyHire,
 } from "@/components/portfolio/Sections";
+import { Interests } from "@/components/portfolio/Interests";
 import { ContactInbox } from "@/components/portfolio/ContactInbox";
+import { Footer } from "@/components/portfolio/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -21,7 +23,10 @@ export const Route = createFileRoute("/")({
         content:
           "Portfolio of Rajiv Pillalamarri — Data Engineer, Cloud Engineer, and AI enthusiast building scalable data platforms with Azure, Databricks, and modern software.",
       },
-      { property: "og:title", content: "Rajiv Pillalamarri — Data & Cloud Engineer" },
+      {
+        property: "og:title",
+        content: "Rajiv Pillalamarri — Data & Cloud Engineer",
+      },
       {
         property: "og:description",
         content:
@@ -35,16 +40,22 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
       <Nav />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <WhyHire />
-      <ContactInbox />
-    </main>
+
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Interests />
+        <WhyHire />
+        <ContactInbox />
+      </main>
+
+      <Footer />
+    </div>
   );
 }
