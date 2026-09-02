@@ -14,9 +14,9 @@ function Section({
   children: React.ReactNode; className?: string;
 }) {
   return (
-    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-28 sm:py-36 ${className}`}>
+    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-16 sm:py-20 ${className}`}>
       <Reveal>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-10 max-w-3xl">
           {eyebrow && (
             <div className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-brand-cyan">
               {eyebrow}
@@ -43,20 +43,15 @@ export function About() {
         <Reveal>
           <div className="glass rounded-3xl p-8 sm:p-10">
             <p className="text-lg leading-relaxed text-foreground/90">
-              I'm <span className="text-gradient-accent font-semibold">Rajiv Pillalamarri</span>,
-              a Computer Science graduate passionate about Data Engineering, Cloud Computing,
-              Artificial Intelligence, and Software Development.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              My journey started with Java, Python, and Machine Learning before evolving into
-              cloud-native data engineering and modern analytics. I enjoy designing scalable ETL
-              pipelines, working with Databricks and Azure, building intelligent software
-              solutions, and continuously learning new technologies.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              I believe the best engineers combine technical excellence with communication,
-              leadership, curiosity, adaptability, and teamwork.
-            </p>
+  I'm <span className="text-gradient-accent font-semibold">Rajiv Pillalamarri</span>,
+  a Computer Science graduate passionate about Data Engineering, Cloud Computing,
+  Artificial Intelligence, and Software Development.
+</p>
+
+<p className="mt-4 leading-relaxed text-muted-foreground">
+  I enjoy building scalable data solutions and intelligent applications while
+  continuously exploring new technologies and solving real-world problems.
+</p>
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[
                 { n: "10+", l: "Technologies" },
@@ -123,9 +118,9 @@ export function Experience() {
         <div className="space-y-12">
           {experience.map((e, i) => (
             <Reveal key={e.company} delay={i * 100}>
-              <div className={`relative grid gap-8 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:col-start-2" : ""}`}>
-                <div className="absolute left-4 top-6 h-4 w-4 -translate-x-1/2 rounded-full bg-accent-gradient shadow-[0_0_20px] shadow-accent/60 md:left-1/2" />
-                <div className={`glass rounded-3xl p-8 ${i % 2 ? "md:mr-12" : "md:ml-12"}`}>
+              <div className="relative grid gap-8 md:grid-cols-2">
+                <div className="absolute left-4 top-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-accent-gradient shadow-[0_0_20px] shadow-accent/60 md:left-1/2" />
+                <div className={`glass rounded-3xl p-8 ${i % 2 ? "md:col-start-2 md:ml-12" : "md:mr-12"}`}>
                   <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground">
                     <Briefcase className="h-3 w-3" /> {e.period}
                   </div>
@@ -189,73 +184,118 @@ export function Skills() {
 }
 
 /* ---------- Projects ---------- */
+
 const projects = [
   {
     name: "MEDICON",
-    tagline: "AI-assisted healthcare companion",
-    desc: "Intelligent healthcare application combining data pipelines, predictive models, and a friendly UI to surface patient insight in real time.",
+    tagline: "AI-Assisted Healthcare Companion",
+    desc: "An intelligent healthcare application combining data pipelines, predictive models, and a user-friendly interface to deliver real-time patient insights.",
     stack: ["Python", "Machine Learning", "Django", "SQL"],
     accent: "from-brand-blue to-brand-cyan",
+    github: "https://github.com/RajivP18/MediCon_ICU_Resource_Allocation",
   },
   {
     name: "Query-Based Abstractive Summarizer",
-    tagline: "Text summarization at query granularity",
-    desc: "NLP system that produces query-focused abstractive summaries over long documents using transformer models and custom scoring.",
+    tagline: "Intelligent Query-Focused Text Summarization",
+    desc: "An NLP system that generates query-focused abstractive summaries from long documents using transformer models and custom scoring techniques.",
     stack: ["Python", "NLP", "Transformers", "PyTorch"],
     accent: "from-brand-indigo to-brand-violet",
+    github: "https://github.com/RajivP18",
   },
   {
     name: "Gradient Color Generator",
-    tagline: "Design tool for beautiful gradients",
-    desc: "Interactive color playground for designers and developers to craft, preview, and export production-ready gradient palettes.",
+    tagline: "Interactive Gradient Design Tool",
+    desc: "A simple and interactive tool that helps users create, preview, and export beautiful production-ready gradient color combinations.",
     stack: ["React", "TypeScript", "CSS"],
     accent: "from-brand-violet to-brand-cyan",
+    github: "https://github.com/RajivP18/Gradient-generator-using-HTML-CSS-JS",
   },
 ];
 
 export function Projects() {
   return (
-    <Section id="projects" eyebrow="Selected Work" title="Projects, product-first." subtitle="A few things I've built where design, engineering, and data meet.">
-      <div className="space-y-8">
-        {projects.map((p, i) => (
-          <Reveal key={p.name} delay={i * 80}>
-            <article className="glass group relative grid gap-8 overflow-hidden rounded-[2rem] p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]">
-              {/* Visual */}
-              <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br ${p.accent}`}>
+    <Section
+      id="projects"
+      eyebrow="Selected Work"
+      title="Projects, product-first."
+      subtitle="A selection of projects where engineering, data, and technology come together."
+    >
+      <div className="space-y-5">
+        {projects.map((project, index) => (
+          <Reveal key={project.name} delay={index * 80}>
+            <article className="glass group relative grid gap-5 overflow-hidden rounded-2xl p-5 sm:p-6 lg:grid-cols-[0.9fr_1.2fr]">
+              
+              {/* Project Visual */}
+              <div
+                className={`relative aspect-[16/10] overflow-hidden rounded-xl bg-gradient-to-br ${project.accent}`}
+              >
+                {/* Background Glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,white_0%,transparent_50%)] opacity-30" />
+
+                {/* Project Name */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-bold tracking-tighter text-white/90 sm:text-7xl">
-                    {p.name.split(" ")[0]}
+                  <div className="px-4 text-center text-4xl font-bold tracking-tight text-white/90 sm:text-5xl">
+                    {project.name.split(" ")[0]}
                   </div>
                 </div>
+
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
-              {/* Content */}
+
+              {/* Project Content */}
               <div className="flex flex-col justify-between">
                 <div>
-                  <div className="mb-2 text-xs uppercase tracking-widest text-brand-cyan">
-                    {String(i + 1).padStart(2, "0")} / Featured
+                  {/* Project Number */}
+                  <div className="mb-1 text-xs uppercase tracking-widest text-brand-cyan">
+                    {String(index + 1).padStart(2, "0")} / Featured
                   </div>
-                  <h3 className="text-3xl font-bold sm:text-4xl">{p.name}</h3>
-                  <p className="mt-1 text-lg text-muted-foreground">{p.tagline}</p>
-                  <p className="mt-4 max-w-lg leading-relaxed text-muted-foreground/90">{p.desc}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {p.stack.map((s) => (
-                      <span key={s} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs">
-                        {s}
+
+                  {/* Project Title */}
+                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                    {project.name}
+                  </h3>
+
+                  {/* Tagline */}
+                  <p className="mt-1 text-base text-muted-foreground">
+                    {project.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground/90">
+                    {project.desc}
+                  </p>
+
+                  {/* Technology Stack */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.stack.map((technology) => (
+                      <span
+                        key={technology}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-foreground/90"
+                      >
+                        {technology}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a href="#" className="group/btn inline-flex items-center gap-2 rounded-full bg-accent-gradient px-5 py-2.5 text-sm font-medium text-white transition-transform hover:scale-105">
-                    Live Demo <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                  <a href="#" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
-                    <Github className="h-4 w-4" /> Code
+
+                {/* GitHub Button */}
+                <div className="mt-5">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center gap-2 rounded-full bg-accent-gradient px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105"
+                  >
+                    <Github className="h-4 w-4" />
+
+                    <span>View on GitHub</span>
+
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </a>
                 </div>
               </div>
+
             </article>
           </Reveal>
         ))}
@@ -263,103 +303,82 @@ export function Projects() {
     </Section>
   );
 }
-
 /* ---------- Certifications & Achievements ---------- */
+
 const certs = [
-  "IBM Data Engineering",
-  "IBM Data Science",
-  "Microsoft AI Skills Fest",
-  "Azure Fundamentals",
-  "HackerRank SQL (Gold)",
-  "HackerRank Python",
-  "Databricks Lakehouse",
-  "Job Simulations",
+  {
+    name: "Databricks Verified Credential",
+    url: "https://credentials.databricks.com/b81fa6ea-f6c2-4bb5-af27-4a4d87ea929f?utm_source=linkedin&utm_medium=social",
+  },
+  {
+    name: "Microsoft AI Skills Fest 2026",
+    url: "https://www.credly.com/badges/7879cc95-1b09-476d-a807-8ef9898e2de2",
+  },
+  {
+    name: "Tata — GenAI Powered Data Analytics Job Simulation",
+    url: "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_q3Rvc7eTKREGii2Fw_1743696802929_completion_certificate.pdf",
+  },
+  {
+    name: "Wells Fargo — Software Engineering Job Simulation",
+    url: "https://www.theforage.com/completion-certificates/nkmk7gJitYs4TBvoA/9Wvq4L2WCFQDyyPp3_nkmk7gJitYs4TBvoA_q3Rvc7eTKREGii2Fw_1780918386741_completion_certificate.pdf",
+  },
+  {
+    name: "Tata — Data Visualisation: Empowering Business with Effective Insights",
+    url: "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_q3Rvc7eTKREGii2Fw_1780294168511_completion_certificate.pdf",
+  },
+  {
+    name: "HackerRank — Problem Solving (Basic)",
+    url: "https://www.hackerrank.com/certificates/83c95a527d2f",
+  },
+  {
+    name: "HackerRank — SQL (Basic)",
+    url: "https://www.hackerrank.com/certificates/a9aa550972b5",
+  },
+  {
+    name: "HackerRank — Java (Basic)",
+    url: "https://www.hackerrank.com/certificates/ffd1a6b73e54",
+  },
 ];
 
 export function Certifications() {
   return (
-    <Section id="certifications" eyebrow="Recognition" title="Certifications & achievements.">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {certs.map((c, i) => (
-          <Reveal key={c} delay={i * 40}>
-            <div className="glass group relative overflow-hidden rounded-2xl p-5 transition-all hover:-translate-y-1">
-              <div className="absolute inset-0 bg-accent-gradient opacity-0 blur-2xl transition-opacity group-hover:opacity-20" />
-              <Award className="mb-3 h-6 w-6 text-brand-cyan" />
-              <div className="text-sm font-medium">{c}</div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </Section>
-  );
-}
+    <Section
+      id="certifications"
+      eyebrow="Recognition"
+      title="Certifications & achievements."
+    >
+      <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {certs.map((cert, index) => (
+          <Reveal key={cert.name} delay={index * 40}>
+            <a
+              href={cert.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass group relative flex h-full min-h-[115px] flex-col justify-between overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+            >
+              {/* Hover Glow */}
+              <div className="absolute inset-0 bg-accent-gradient opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
 
-/* ---------- Journey ---------- */
-const journey = [
-  { year: "2020", label: "Started Computer Science" },
-  { year: "2021", label: "Learned Java & Python" },
-  { year: "2022", label: "Machine Learning & Projects" },
-  { year: "2023", label: "Internships & Industry Work" },
-  { year: "2024", label: "Health Catalyst • Azure • Databricks" },
-  { year: "2025", label: "Preparing for Microsoft DP-750" },
-  { year: "Now", label: "Seeking Full-Time Data Engineering Roles" },
-];
+              <div className="relative flex flex-col">
+                {/* Icon and External Link */}
+                <div className="mb-3 flex items-start justify-between">
+                  <Award className="h-5 w-5 shrink-0 text-brand-cyan" />
 
-export function Journey() {
-  return (
-    <Section id="journey" eyebrow="My Journey" title="From first line of code to cloud-scale data.">
-      <div className="relative mx-auto max-w-3xl">
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-brand-blue via-brand-indigo to-brand-violet" />
-        <div className="space-y-8">
-          {journey.map((j, i) => (
-            <Reveal key={j.year} delay={i * 60}>
-              <div className={`flex items-center gap-6 ${i % 2 ? "flex-row-reverse" : ""}`}>
-                <div className="glass flex-1 rounded-2xl p-5">
-                  <div className="text-xs text-brand-cyan">{j.year}</div>
-                  <div className="mt-1 font-medium">{j.label}</div>
+                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100" />
                 </div>
-                <div className="relative z-10 h-4 w-4 shrink-0 rounded-full bg-accent-gradient shadow-[0_0_24px] shadow-accent/70" />
-                <div className="flex-1" />
+
+                {/* Certification Name */}
+                <div className="min-h-[42px] text-sm font-semibold leading-snug text-foreground">
+                  {cert.name}
+                </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ---------- Interests ---------- */
-const interests = [
-  { emoji: "🏏", label: "Cricket", note: "RCB & Virat Kohli" },
-  { emoji: "⚽", label: "Football", note: "Tournaments & tactics" },
-  { emoji: "🎵", label: "Music", note: "Focus & flow" },
-  { emoji: "☁️", label: "Cloud", note: "Azure • AWS" },
-  { emoji: "🤖", label: "AI", note: "LLMs & agents" },
-  { emoji: "📊", label: "Data", note: "Pipelines & insight" },
-  { emoji: "💻", label: "Software", note: "Craft & shipping" },
-  { emoji: "🧠", label: "Problem Solving", note: "First-principles" },
-];
-
-export function Interests() {
-  return (
-    <Section id="interests" eyebrow="Beyond Work" title="What keeps me curious.">
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-        {interests.map((it, i) => (
-          <Reveal key={it.label} delay={i * 50}>
-            <div className="glass group relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-3xl p-5 text-center transition-all hover:scale-[1.03]">
-              <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-brand-indigo/20 blur-2xl opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="text-4xl transition-transform group-hover:scale-125">{it.emoji}</div>
-              <div className="mt-3 font-medium">{it.label}</div>
-              <div className="text-xs text-muted-foreground">{it.note}</div>
-            </div>
+            </a>
           </Reveal>
         ))}
       </div>
     </Section>
   );
 }
-
 /* ---------- Core Values / Why hire me ---------- */
 const values = [
   { Icon: Lightbulb, t: "Innovation" },
