@@ -10,9 +10,9 @@ import {
   Journey,
   Interests,
   WhyHire,
-  Contact,
   Footer,
 } from "@/components/portfolio/Sections";
+import { ContactInbox } from "@/components/portfolio/ContactInbox";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -49,7 +49,7 @@ function Index() {
       <Journey />
       <Interests />
       <WhyHire />
-      <Contact />
+      <ContactInbox />
       <Footer />
     </main>
   );
