@@ -184,7 +184,6 @@ export function Skills() {
 }
 
 /* ---------- Projects ---------- */
-
 const projects = [
   {
     name: "MEDICON",
@@ -224,78 +223,35 @@ export function Projects() {
         {projects.map((project, index) => (
           <Reveal key={project.name} delay={index * 80}>
             <article className="glass group relative grid gap-5 overflow-hidden rounded-2xl p-5 sm:p-6 lg:grid-cols-[0.9fr_1.2fr]">
-              
-              {/* Project Visual */}
-              <div
-                className={`relative aspect-[16/10] overflow-hidden rounded-xl bg-gradient-to-br ${project.accent}`}
-              >
-                {/* Background Glow */}
+              <div className={`relative aspect-[16/10] overflow-hidden rounded-xl bg-gradient-to-br ${project.accent}`}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,white_0%,transparent_50%)] opacity-30" />
-
-                {/* Project Name */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="px-4 text-center text-4xl font-bold tracking-tight text-white/90 sm:text-5xl">
                     {project.name.split(" ")[0]}
                   </div>
                 </div>
-
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
-
-              {/* Project Content */}
               <div className="flex flex-col justify-between">
                 <div>
-                  {/* Project Number */}
-                  <div className="mb-1 text-xs uppercase tracking-widest text-brand-cyan">
-                    {String(index + 1).padStart(2, "0")} / Featured
-                  </div>
-
-                  {/* Project Title */}
-                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                    {project.name}
-                  </h3>
-
-                  {/* Tagline */}
-                  <p className="mt-1 text-base text-muted-foreground">
-                    {project.tagline}
-                  </p>
-
-                  {/* Description */}
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground/90">
-                    {project.desc}
-                  </p>
-
-                  {/* Technology Stack */}
+                  <div className="mb-1 text-xs uppercase tracking-widest text-brand-cyan">{String(index + 1).padStart(2, "0")} / Featured</div>
+                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">{project.name}</h3>
+                  <p className="mt-1 text-base text-muted-foreground">{project.tagline}</p>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground/90">{project.desc}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.stack.map((technology) => (
-                      <span
-                        key={technology}
-                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-foreground/90"
-                      >
-                        {technology}
-                      </span>
+                      <span key={technology} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-foreground/90">{technology}</span>
                     ))}
                   </div>
                 </div>
-
-                {/* GitHub Button */}
                 <div className="mt-5">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn inline-flex items-center gap-2 rounded-full bg-accent-gradient px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105"
-                  >
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="group/btn inline-flex items-center gap-2 rounded-full bg-accent-gradient px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105">
                     <Github className="h-4 w-4" />
-
                     <span>View on GitHub</span>
-
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </a>
                 </div>
               </div>
-
             </article>
           </Reveal>
         ))}
@@ -303,6 +259,7 @@ export function Projects() {
     </Section>
   );
 }
+
 /* ---------- Certifications & Achievements ---------- */
 
 const certs = [
@@ -342,35 +299,18 @@ const certs = [
 
 export function Certifications() {
   return (
-    <Section
-      id="certifications"
-      eyebrow="Recognition"
-      title="Certifications & achievements."
-    >
+    <Section id="certifications" eyebrow="Recognition" title="Certifications & achievements.">
       <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {certs.map((cert, index) => (
           <Reveal key={cert.name} delay={index * 40}>
-            <a
-              href={cert.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass group relative flex h-full min-h-[115px] flex-col justify-between overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
-            >
-              {/* Hover Glow */}
+            <a href={cert.url} target="_blank" rel="noopener noreferrer" className="glass group relative flex h-full min-h-[115px] flex-col justify-between overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
               <div className="absolute inset-0 bg-accent-gradient opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
-
               <div className="relative flex flex-col">
-                {/* Icon and External Link */}
                 <div className="mb-3 flex items-start justify-between">
                   <Award className="h-5 w-5 shrink-0 text-brand-cyan" />
-
                   <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100" />
                 </div>
-
-                {/* Certification Name */}
-                <div className="min-h-[42px] text-sm font-semibold leading-snug text-foreground">
-                  {cert.name}
-                </div>
+                <div className="min-h-[42px] text-sm font-semibold leading-snug text-foreground">{cert.name}</div>
               </div>
             </a>
           </Reveal>
@@ -379,6 +319,7 @@ export function Certifications() {
     </Section>
   );
 }
+
 /* ---------- Core Values / Why hire me ---------- */
 const values = [
   { Icon: Lightbulb, t: "Innovation" },
@@ -404,26 +345,26 @@ const hireReasons = [
 export function WhyHire() {
   return (
     <Section id="why" eyebrow="Why Work Together" title="Made for teams that ship." subtitle="Values I bring, and the reasons a hiring manager might send me a note.">
-      <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]">
         <Reveal>
-          <div className="glass-strong rounded-3xl p-8">
-            <div className="mb-6 text-sm uppercase tracking-widest text-brand-cyan">Core Values</div>
-            <div className="flex flex-wrap gap-2">
+          <div className="glass-strong rounded-3xl p-6 sm:p-7">
+            <div className="mb-5 text-xs uppercase tracking-widest text-brand-cyan">Core Values</div>
+            <div className="flex flex-wrap gap-1.5">
               {values.map((v) => (
-                <span key={v.t} className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm">
-                  <v.Icon className="h-3.5 w-3.5 text-brand-cyan" />
+                <span key={v.t} className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs">
+                  <v.Icon className="h-3 w-3 text-brand-cyan" />
                   {v.t}
                 </span>
               ))}
             </div>
           </div>
         </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-3.5 sm:grid-cols-2">
           {hireReasons.map((r, i) => (
             <Reveal key={r.t} delay={i * 60}>
-              <div className="glass h-full rounded-2xl p-6 transition-transform hover:-translate-y-1">
-                <div className="text-base font-semibold">{r.t}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{r.d}</div>
+              <div className="glass h-full rounded-2xl p-5 transition-transform hover:-translate-y-1">
+                <div className="text-sm font-semibold">{r.t}</div>
+                <div className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{r.d}</div>
               </div>
             </Reveal>
           ))}
@@ -453,38 +394,19 @@ export function Contact() {
               ].map((f) => (
                 <label key={f.l} className="group block">
                   <div className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">{f.l}</div>
-                  <input
-                    required
-                    type={f.t}
-                    placeholder={f.p}
-                    className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30"
-                  />
+                  <input required type={f.t} placeholder={f.p} className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30" />
                 </label>
               ))}
             </div>
             <label className="mt-5 block">
               <div className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">Subject</div>
-              <input
-                type="text"
-                placeholder="What's this about?"
-                className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30"
-              />
+              <input type="text" placeholder="What's this about?" className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30" />
             </label>
             <label className="mt-5 block">
               <div className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">Message</div>
-              <textarea
-                required
-                rows={5}
-                placeholder="Tell me about the opportunity..."
-                className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30"
-              />
+              <textarea required rows={5} placeholder="Tell me about the opportunity..." className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/50 focus:border-brand-blue/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-brand-blue/30" />
             </label>
-            <button
-              type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-gradient px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/30 transition-transform hover:scale-105"
-            >
-              Send Message <ArrowRight className="h-4 w-4" />
-            </button>
+            <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-gradient px-6 py-3 text-sm font-medium text-white shadow-lg shadow-accent/30 transition-transform hover:scale-105">Send Message <ArrowRight className="h-4 w-4" /></button>
           </form>
         </Reveal>
 
@@ -494,17 +416,11 @@ export function Contact() {
               { Icon: Mail, l: "Email", v: "rajiv.pillalamarri@email.com", h: "mailto:rajiv.pillalamarri@email.com" },
               { Icon: Phone, l: "Phone", v: "+91 • Available on request", h: "#" },
               { Icon: MapPin, l: "Location", v: "India • Open to relocation", h: "#" },
-              { Icon: Github, l: "GitHub", v: "@rajivpillalamarri", h: "https://github.com" },
-              { Icon: Linkedin, l: "LinkedIn", v: "Rajiv Pillalamarri", h: "https://linkedin.com" },
+              { Icon: Github, l: "GitHub", v: "@RajivP18", h: "https://github.com/RajivP18" },
+              { Icon: Linkedin, l: "LinkedIn", v: "Rajiv Pillalamarri", h: "https://www.linkedin.com/in/sri-datta-naga-rajiv-pillalamarri-4b9858246/" },
             ].map((c) => (
-              <a
-                key={c.l}
-                href={c.h}
-                className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-0.5 hover:border-white/20"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-gradient text-white shadow-lg shadow-accent/30">
-                  <c.Icon className="h-5 w-5" />
-                </div>
+              <a key={c.l} href={c.h} target={c.l === "GitHub" || c.l === "LinkedIn" ? "_blank" : undefined} rel={c.l === "GitHub" || c.l === "LinkedIn" ? "noopener noreferrer" : undefined} className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-0.5 hover:border-white/20">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-gradient text-white shadow-lg shadow-accent/30"><c.Icon className="h-5 w-5" /></div>
                 <div className="min-w-0 flex-1">
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.l}</div>
                   <div className="truncate text-sm font-medium">{c.v}</div>
@@ -516,44 +432,5 @@ export function Contact() {
         </Reveal>
       </div>
     </Section>
-  );
-}
-
-/* ---------- Footer ---------- */
-export function Footer() {
-  const quote = '"The first responsibility of a leader is to define reality."';
-  return (
-    <footer className="relative mt-20 overflow-hidden border-t border-white/5 px-6 py-20">
-      <div className="absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-brand-blue to-transparent" />
-      <div className="mx-auto max-w-5xl text-center">
-        <Reveal>
-          <p className="text-3xl font-light leading-tight text-gradient sm:text-5xl">{quote}</p>
-        </Reveal>
-        <Reveal delay={150}>
-          <p className="mt-6 text-muted-foreground">
-            Building the future with Data, Cloud, and Intelligent Engineering.
-          </p>
-        </Reveal>
-        <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 sm:flex-row">
-          <div className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Rajiv Pillalamarri. Crafted with care.
-          </div>
-          <div className="flex items-center gap-3">
-            {[
-              { Icon: Github, h: "https://github.com" },
-              { Icon: Linkedin, h: "https://linkedin.com" },
-              { Icon: Mail, h: "#contact" },
-            ].map((s, i) => (
-              <a key={i} href={s.h} className="glass flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground">
-                <s.Icon className="h-4 w-4" />
-              </a>
-            ))}
-            <a href="#top" className="ml-2 rounded-full border border-white/10 px-4 py-2 text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Back to top ↑
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
