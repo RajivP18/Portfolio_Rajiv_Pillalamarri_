@@ -10,6 +10,7 @@ import {
   WhyHire,
 } from "@/components/portfolio/Sections";
 import { Interests } from "@/components/portfolio/Interests";
+import { Journey } from "@/components/portfolio/Journey";
 import { ContactInbox } from "@/components/portfolio/ContactInbox";
 import { Footer } from "@/components/portfolio/Footer";
 
@@ -51,6 +52,7 @@ function Index() {
         <Projects />
         <Certifications />
         <Interests />
+        <Journey />
         <WhyHire />
         <ContactInbox />
       </main>
