@@ -1,4 +1,4 @@
-import { Github, Heart, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ export function Footer() {
               href="#top"
               className="text-xl font-bold tracking-tight transition-opacity hover:opacity-80"
             >
-              Rajiv<span className="text-brand-cyan">.</span>
+              <span className="text-gradient">Rajiv</span>
             </a>
             <p className="mt-2 text-sm text-muted-foreground">
               Data Engineer • Cloud Enthusiast • AI Explorer
@@ -50,13 +50,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center text-sm text-muted-foreground sm:flex-row sm:text-left">
+        <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-muted-foreground sm:text-left">
           <p>© {currentYear} Rajiv Pillalamarri. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built with
-            <Heart className="h-4 w-4 fill-current text-brand-cyan" />
-            and curiosity.
-          </p>
         </div>
       </div>
     </footer>
