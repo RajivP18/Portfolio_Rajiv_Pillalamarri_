@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SmoothScroll } from "@/components/portfolio/SmoothScroll";
 
 function NotFoundComponent() {
@@ -38,8 +37,9 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error("Application error:", error);
   }, [error]);
 
   return (
@@ -78,14 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Rajiv Pillalamarri — Portfolio" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Rajiv Pillalamarri — Data Engineering, Cloud, AI, and Software Development.",
+      },
+      { property: "og:title", content: "Rajiv Pillalamarri — Portfolio" },
+      {
+        property: "og:description",
+        content:
+          "Data Engineering, Cloud, AI, and Software Development portfolio of Rajiv Pillalamarri.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -121,7 +127,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SmoothScroll>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </SmoothScroll>
     </QueryClientProvider>
