@@ -4,12 +4,11 @@ import { Hero } from "@/components/portfolio/Hero";
 import {
   About,
   Experience,
-  Skills,
   Projects,
   Certifications,
   WhyHire,
 } from "@/components/portfolio/Sections";
-import { AISkills } from "@/components/portfolio/AISkills";
+import { Skills } from "@/components/portfolio/UpdatedSkills";
 import { Interests } from "@/components/portfolio/Interests";
 import { Journey } from "@/components/portfolio/Journey";
 import { ContactInbox } from "@/components/portfolio/ContactInbox";
@@ -50,7 +49,6 @@ function Index() {
         <About />
         <Experience />
         <Skills />
-        <AISkills />
         <Projects />
         <Certifications />
         <Interests />
