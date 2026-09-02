@@ -11,12 +11,14 @@ const links = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 20);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
       <nav
@@ -27,6 +29,7 @@ export function Nav() {
         <a href="#top" className="px-4 py-2 text-sm font-semibold tracking-tight">
           <span className="text-gradient">Rajiv</span>
         </a>
+
         <div className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
             <a
@@ -38,11 +41,12 @@ export function Nav() {
             </a>
           ))}
         </div>
+
         <a
           href="#contact"
           className="ml-1 rounded-full bg-accent-gradient px-4 py-2 text-sm font-medium text-white shadow-lg shadow-accent/30 transition-transform hover:scale-105"
         >
-          Hire Me
+          Contact
         </a>
       </nav>
     </header>
