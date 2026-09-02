@@ -7,10 +7,7 @@ import {
   Skills,
   Projects,
   Certifications,
-  Journey,
-  Interests,
   WhyHire,
-  Footer,
 } from "@/components/portfolio/Sections";
 import { ContactInbox } from "@/components/portfolio/ContactInbox";
 
@@ -46,11 +43,8 @@ function Index() {
       <Skills />
       <Projects />
       <Certifications />
-      <Journey />
-      <Interests />
       <WhyHire />
       <ContactInbox />
-      <Footer />
     </main>
   );
 }
